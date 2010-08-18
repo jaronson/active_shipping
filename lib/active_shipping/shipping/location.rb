@@ -12,7 +12,11 @@ module ActiveMerchant #:nodoc:
                   :address3,
                   :phone,
                   :fax,
-                  :address_type
+                  :address_type,
+                  :name,
+                  :attention_name,
+                  :company_name,
+                  :tax_id_number
       
       alias_method :zip, :postal_code
       alias_method :postal, :postal_code
@@ -34,6 +38,10 @@ module ActiveMerchant #:nodoc:
         @fax = options[:fax]
         raise ArgumentError.new('address_type must be either "residential" or "commercial"') if options[:address_type] and not (["residential", "commercial", ""]).include?(options[:address_type].to_s)
         @address_type = options[:address_type].nil? ? nil : options[:address_type].to_s
+        @name = options[:name]
+        @attention_name = options[:attention_name]
+        @company_name = options[:company_name]
+        @tax_id = options[:tax_id_number]
       end
       
       def self.from(object, options={})

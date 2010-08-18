@@ -34,6 +34,8 @@ end
 autoload :XmlNode, 'vendor/xml_node/lib/xml_node'
 autoload :Quantified, 'vendor/quantified/lib/quantified'
 
+require 'ostruct'
+require 'base64'
 require 'net/https'
 require 'active_merchant/common'
 
